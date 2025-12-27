@@ -4,7 +4,7 @@ import http from 'http';
 import { UserManager } from "./UserManager.js";
 import { IncomingMessage, SupportedMessage } from "./messages/incomingMessages.js";
 
-import { InMemoryStore } from "./store/inMemoryStore.js";
+import { InMemoryStore } from "./store/InMemoryStore.js";
 
 const server = http.createServer(function(request: any, response: any) {
     console.log((new Date()) + ' Received request for ' + request.url);
@@ -21,7 +21,7 @@ server.listen(8080, function() {
 
 const wsServer = new WebSocketServer({
     httpServer: server,
-    autoAcceptConnections: false
+    autoAcceptConnections: true
 });
 
 function originIsAllowed(origin: string) {
